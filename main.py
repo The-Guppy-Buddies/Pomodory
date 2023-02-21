@@ -15,13 +15,15 @@ mydb = myclient["Members"]
 #accessing collection "members", so we're accessing "Members.members"
 mycollection = mydb["members"]
 #we search the db by id num (key), and then return the associated values
-@app.route("/collection")
-def search_by_id():
+@app.route("/collection/<id>")
+def search_by_id(id):
   res = []
   for item in mycollection.find():
-    print(item) 
-  for value in mycollection.find():
-    return json_util.dumps(value)
+    if item["Member ID"] == id:
+      #print(item) 
+      return json_util.dumps(item)
+  #for value in mycollection.find():
+  #  return json_util.dumps(value)
   
 
 
@@ -29,7 +31,7 @@ def search_by_id():
 
 #init_db()
 #print(search_by_id('001'))
-search_by_id()
+search_by_id('001')
 
 
 app.run(host = "0.0.0.0")
