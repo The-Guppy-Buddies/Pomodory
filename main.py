@@ -25,7 +25,9 @@ def search_by_id(id):
   #for value in mycollection.find():
   #  return json_util.dumps(value)
   
-
+@app.route("/marlin")
+def marlin():
+  return "This is marlin!"
 
 
 
