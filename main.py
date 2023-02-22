@@ -29,6 +29,10 @@ def search_by_id(id):
 def marlin():
   return "This is marlin!"
 
+@app.route("/nemo")
+def marlin():
+  return "I'm Nemo from Finding Nemo!"
+
 
 
 #init_db()
