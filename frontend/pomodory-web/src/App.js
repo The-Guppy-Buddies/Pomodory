@@ -1,41 +1,30 @@
 import './App.css';
-//basic output onto localhost webpage 
-//import './script'
+import { useState } from 'react';
+import Member from './components/Member';
+
 function App() {
+    const [id, setId] = useState('');
+    const [member, setMember] = useState('');
+
+    const handleId = (event) => {
+        setId(event.target.value);
+    };
+
+    const search = async (id) => {
+        await fetch(`https://Pomodory-1.guppy-buddies.repl.co/collection/${id}`)
+            .then((response) => response.json())
+            .then((data) => setMember(data));
+    }
+
     return (
         <div className="App">
             <h1>Guppy Buddies Test Page!</h1>
-            <input id="id_inp" type="text"></input>
-            <button className="btn btn-primary" onClick={() => search()}>Search</button>  
-            <script src = "main.py"></script>
+            <input id="id_inp" type="text" onChange={handleId}></input>
+            <button className="btn btn-primary" onClick={() => search(id)}>Search</button>
+            <Member curMember={member}/>
         </div>
     );
 }
-
-async function search() {
-    await fetch('http://localhost:5000/collection/001')
-        .then((response) => response.json())
-        .then((data) => console.log(data));
-}
-
-//we now want to create the search functionality using the prof's example in class
-// export function search(){
-//     return(
-//         <div className = "search">
-//             <h2>Search example
-//                 <input type= "text"></input>
-//                 <button>Search now</button>
-
-
-//             </h2>
-
-//         </div>
-//     );
-// }
-
-
-
-
 
 //exposes App components to other "modules"
 export default App;
