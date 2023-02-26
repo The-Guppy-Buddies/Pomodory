@@ -30,7 +30,7 @@ def marlin():
   return "This is marlin!"
 
 @app.route("/nemo")
-def marlin():
+def nemo():
   return "I'm Nemo from Finding Nemo!"
 
 
