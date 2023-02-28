@@ -19,7 +19,7 @@ function App() {
     return (
         <div className="App">
             <h1>Guppy Buddies Test Page!</h1>
-            <input id="id_inp" type="text" onChange={handleId}></input>
+            <input id="id_inp" type="text" placeholder="Member ID" onChange={handleId}></input>
             <button className="btn btn-primary" onClick={() => search(id)}>Search</button>
             <form action="https://Pomodory-1.guppy-buddies.repl.co/collection/create" method="post">
                 <input name="Member ID" type="text" placeholder='ID'></input>
