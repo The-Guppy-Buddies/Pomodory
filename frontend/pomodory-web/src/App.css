@@ -6,7 +6,11 @@ h1 {
     color: white;
 }
 
+form {
+    width: 200px;
+    margin: 0 auto;
+}
+
 form input {
     display: block;
-    margin: 0 auto;
 }

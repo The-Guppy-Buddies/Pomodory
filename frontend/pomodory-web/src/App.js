@@ -1,4 +1,5 @@
 import './App.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { useState } from 'react';
 import Member from './components/Member';
 
@@ -22,10 +23,10 @@ function App() {
             <input id="id_inp" type="text" placeholder="Member ID" onChange={handleId}></input>
             <button className="btn btn-primary" onClick={() => search(id)}>Search</button>
             <form action="https://Pomodory-1.guppy-buddies.repl.co/collection/create" method="post">
-                <input name="Member ID" type="text" placeholder='ID'></input>
-                <input name="name" type="text" placeholder='Name'></input>
-                <input name="occupation" type="text" placeholder='Occupation'></input>
-                <button type="submit">Submit</button>
+                <input className="mt-2 form-control" name="Member ID" type="text" placeholder='ID'></input>
+                <input className="mt-2 form-control" name="name" type="text" placeholder='Name'></input>
+                <input className="mt-2 form-control" name="occupation" type="text" placeholder='Occupation'></input>
+                <button className="mt-2 btn btn-primary" type="submit">Submit</button>
             </form>
             <Member curMember={member}/>
         </div>
