@@ -7,7 +7,6 @@ import bson.json_util as json_util
 app = Flask(__name__)
 CORS(app)
 
-
 myclient = pymongo.MongoClient("mongodb+srv://adultishgambino:E7J1KjRM6nkPOLRd@guppybuddies.tfnbypd.mongodb.net/MembersretryWrites=true&w=majority")
 
 #accessing db "Members"

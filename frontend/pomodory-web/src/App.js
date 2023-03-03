@@ -2,6 +2,7 @@ import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { useState } from 'react';
 import Member from './components/Member';
+import Timer from './components/CountdownTimer';
 
 function App() {
     const [id, setId] = useState('');
@@ -29,6 +30,8 @@ function App() {
                 <button className="mt-2 btn btn-primary" type="submit">Submit</button>
             </form>
             <Member curMember={member}/>
+            <Timer/> 
+            
         </div>
     );
 }
