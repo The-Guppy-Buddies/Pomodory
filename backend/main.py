@@ -8,7 +8,7 @@ import bson.json_util as json_util
 
 app = Flask(__name__)
 CORS(app)
-my_secret = os.environ['clientToken']  # private key inside Secrets of Replit
+my_secret = "hi I am Pomodory"  # private key inside Secrets of Replit
 myclient = pymongo.MongoClient(my_secret)
 
 #accessing db "Members"
@@ -21,12 +21,16 @@ mycollection = mydb["members"]
 @app.route("/collection/<id>")
 def search_by_id(id):
   res = []
+  # try:
   for item in mycollection.find():
     if item["Member ID"] == id:
       #print(item)
       return json_util.dumps(item)
+  raise ValueError('Guppy not found')
+  # except ValueError as Error: 
+  #   return "Guppy not found"
 
-  #for value in mycollection.find():
+  # for value in mycollection.find():
   #  return json_util.dumps(value)
 
 
@@ -40,18 +44,17 @@ def create():
   return redirect(request.referrer)
 
 
-@app.route("/marlin")
-def marlin():
-  return "This is marlin!"
+# @app.route("/marlin")
+# def marlin():
+#   return "This is marlin!"
 
 
-@app.route("/nemo")
-def nemo():
-  return "I'm Nemo from Finding Nemo!"
+# @app.route("/nemo")
+# def nemo():
+#   return "I'm Nemo from Finding Nemo!"
 
 
-#init_db()
-#print(search_by_id('001'))
-search_by_id('001')
+# print(search_by_id('001'))
+# search_by_id('001')
 
 app.run(host="0.0.0.0")

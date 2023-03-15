@@ -13,7 +13,7 @@ function App() {
     };
 
     const search = async (id) => {
-        await fetch(`https://Pomodory-1.guppy-buddies.repl.co/collection/${id}`)
+        await fetch(`http://localhost:5000/collection/${id}`)
             .then((response) => response.json())
             .then((data) => setMember(data));
     }
