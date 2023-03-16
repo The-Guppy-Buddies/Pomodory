@@ -57,4 +57,5 @@ def create():
 # print(search_by_id('001'))
 # search_by_id('001')
 
-app.run(host="0.0.0.0")
+if __name__ == "__main__":
+  app.run(host="0.0.0.0")
