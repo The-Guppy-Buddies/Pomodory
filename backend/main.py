@@ -8,8 +8,9 @@ import bson.json_util as json_util
 
 app = Flask(__name__)
 CORS(app)
-my_secret = "hi I am Pomodory"  # private key inside Secrets of Replit
-myclient = pymongo.MongoClient(my_secret)
+my_secret = open("/home/ec2-user/private/key.txt","r")  # private key inside AWS
+myclient = pymongo.MongoClient(my_secret.readline())
+my_secret.close()
 
 #accessing db "Members"
 mydb = myclient["Members"]
