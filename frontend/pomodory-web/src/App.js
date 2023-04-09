@@ -13,10 +13,10 @@ function App() {
         setId(event.target.value);
     };
 
-    const url = 'http://ec2-54-86-166-49.compute-1.amazonaws.com:5000/collection/';
+    const url = 'http://54.237.22.243:5000/collection';
 
     const search = async (id) => {
-        await fetch(`${url}${id}`)
+        await fetch(`${url}/${id}`)
             .then((response) => response.json())
             .then((data) => setMember(data));
     }
