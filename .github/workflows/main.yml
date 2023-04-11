@@ -26,7 +26,6 @@ jobs:
         node-version: 16
       env:
         working-directory: ~/Pomodory/frontend/pomodory-web
-    - run: nvm use 16
     - run: npm run build
   
     - uses: actions/checkout@v3
