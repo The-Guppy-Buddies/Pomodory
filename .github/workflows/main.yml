@@ -55,7 +55,7 @@ jobs:
         key: ${{ secrets.KEY }}
         source: "~/Pomodory/frontend/pomodory-web/build"
         target: "~/Pomodory/frontend/pomodory-web"
-        
+        strip_components: 1
         
     - name: Run commands to run backend and frontend on EC2 instance
       uses: appleboy/ssh-action@v0.1.9
