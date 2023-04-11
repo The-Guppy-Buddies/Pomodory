@@ -28,6 +28,7 @@ jobs:
         working-directory: ~/Pomodory/frontend/pomodory-web
     - run: pwd
     - run: ls
+    - run: cd ./frontend/pomodory-web
     - run: npm run build
     
   
