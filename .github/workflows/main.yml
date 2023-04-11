@@ -53,8 +53,8 @@ jobs:
         username: ec2-user
         port: 22
         key: ${{ secrets.KEY }}
-        source: "Pomodory/frontend/pomodory-web/build"
-        target: "Pomodory/frontend/pomodory-web"
+        source: "~/Pomodory/frontend/pomodory-web/build"
+        target: "pomodory-web"
         
     - name: Run commands to run backend and frontend on EC2 instance
       uses: appleboy/ssh-action@v0.1.9
