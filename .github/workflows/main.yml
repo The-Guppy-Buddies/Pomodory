@@ -25,6 +25,7 @@ jobs:
       with:
         node-version: 16
       env:
+        CI: false
         working-directory: ~/Pomodory/frontend/pomodory-web
     - run: cd ./frontend/pomodory-web && npm install 
     - run: cd ./frontend/pomodory-web && npm run build
