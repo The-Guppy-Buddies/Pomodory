@@ -31,11 +31,10 @@ jobs:
         cd ./frontend/pomodory-web
         npm install 
         npm run build
+        tar cvf build.tar build
         pwd
         ls
  
-    
-  
 #     - uses: actions/checkout@v3
 #     - name: Set up Python 3.7.16
 #       uses: actions/setup-python@v3
@@ -55,8 +54,8 @@ jobs:
         username: ec2-user
         port: 22
         key: ${{ secrets.KEY }}
-        source: "Pomodory/frontend/pomodory-web/build"
-        target: "pomodory-web"
+        source: "frontend/pomodory-web/build.tar"
+        target: "Pomodory/frontend/pomodory-web"
         
     - name: Run commands to run backend and frontend on EC2 instance
       uses: appleboy/ssh-action@v0.1.9
