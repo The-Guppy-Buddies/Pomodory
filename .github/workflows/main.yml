@@ -24,27 +24,29 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16
-      env:
-        process.env.CI: false
-        working-directory: Pomodory/frontend/pomodory-web
-    - run: cd ./frontend/pomodory-web && npm install 
-    - run: cd ./frontend/pomodory-web && npm run build
-    - run: pwd
-    - run: ls
+#       env:
+#         process.env.CI: false
+#         working-directory: Pomodory/frontend/pomodory-web
+    - run: |
+        cd ./frontend/pomodory-web
+        npm install 
+        npm run build
+        pwd
+        ls
  
     
   
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.7.16
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.7.16"
-      env:
-        process.env.CI: false
-        working-directory: Pomodory/backend
-    - name: Install dependencies
-      run: 
-        python3 -m pip install --upgrade pip
+#     - uses: actions/checkout@v3
+#     - name: Set up Python 3.7.16
+#       uses: actions/setup-python@v3
+#       with:
+#         python-version: "3.7.16"
+#       env:
+#         process.env.CI: false
+#         working-directory: Pomodory/backend
+#     - name: Install dependencies
+#       run: 
+#         python3 -m pip install --upgrade pip
     
     - name: Copy Build files to EC2 instance
       uses: appleboy/scp-action@master
