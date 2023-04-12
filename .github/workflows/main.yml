@@ -26,7 +26,7 @@ jobs:
         node-version: 16
       env:
         process.env.CI: false
-        working-directory: ~/Pomodory/frontend/pomodory-web
+        working-directory: Pomodory/frontend/pomodory-web
     - run: cd ./frontend/pomodory-web && npm install 
     - run: cd ./frontend/pomodory-web && npm run build
     - run: pwd
@@ -41,7 +41,7 @@ jobs:
         python-version: "3.7.16"
       env:
         process.env.CI: false
-        working-directory: ~/Pomodory/backend
+        working-directory: Pomodory/backend
     - name: Install dependencies
       run: 
         python3 -m pip install --upgrade pip
@@ -53,7 +53,7 @@ jobs:
         username: ec2-user
         port: 22
         key: ${{ secrets.KEY }}
-        source: "~/Pomodory/frontend/pomodory-web/build"
+        source: "Pomodory/frontend/pomodory-web/build"
         target: "pomodory-web"
         
     - name: Run commands to run backend and frontend on EC2 instance
