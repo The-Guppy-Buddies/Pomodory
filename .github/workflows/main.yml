@@ -32,8 +32,8 @@ jobs:
         npm install 
         npm run build
         tar cvf ../../build.tar build
-        pwd
-        ls
+        cd ../../backend
+        cp main.py ../main.py
  
 #     - uses: actions/checkout@v3
 #     - name: Set up Python 3.7.16
@@ -54,7 +54,7 @@ jobs:
         username: ec2-user
         port: 22
         key: ${{ secrets.KEY }}
-        source: "build.tar"
+        source: "build.tar,main.py"
         target: "~/"
         
     - name: Run commands to run backend and frontend on EC2 instance
