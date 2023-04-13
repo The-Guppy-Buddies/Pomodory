@@ -64,6 +64,7 @@ jobs:
         
         script: 
           tar xf build.tar
+          sudo su
           nvm use 16
           killall python3
           killall node
