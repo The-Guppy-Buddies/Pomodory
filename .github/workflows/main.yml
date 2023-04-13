@@ -24,9 +24,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16
-#       env:
-#         process.env.CI: false
-#         working-directory: Pomodory/frontend/pomodory-web
     - run: |
         cd ./frontend/pomodory-web
         npm install 
@@ -67,6 +64,7 @@ jobs:
         
         script: 
           tar xf build.tar
+          nvm use 16
           killall python3
           killall node
           nohup python3 main.py > nohup-backend.out &
