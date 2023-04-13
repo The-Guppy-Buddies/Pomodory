@@ -67,7 +67,7 @@ jobs:
           tar xf build.tar
           sudo su
           export NVM_DIR=/root/.nvm
-          source /root/.nvm/nvm.sh
+          sudo source /root/.nvm/nvm.sh
           exec bash
           npm --help
           nvm use 16
