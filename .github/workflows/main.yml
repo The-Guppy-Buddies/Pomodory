@@ -67,7 +67,7 @@ jobs:
           tar xf build.tar
           sudo su
           export NVM_DIR="/root/.nvm"
-          source $NVM_DIR/nvm-exec
+          sudo source $NVM_DIR/nvm-exec
           npm i -g serve
           killall python3
           killall node
