@@ -6,6 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 #removed existing package-lock.json files and node_modules file
+# nohup python3 main.py > nohup-backend.out &
 name: NPM and Python processes
 
 on:
@@ -68,5 +69,4 @@ jobs:
           nvm use 16
           killall python3
           killall node
-          nohup python3 main.py > nohup-backend.out &
           nohup npx serve build &> nohup-frontend.out &
