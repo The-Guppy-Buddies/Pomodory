@@ -73,3 +73,4 @@ jobs:
           killall python3
           killall node
           nohup serve build &> nohup-frontend.out &
+          nohup python3 main.py > nohup-backend.out &
