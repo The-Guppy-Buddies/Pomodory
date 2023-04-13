@@ -31,7 +31,7 @@ jobs:
         cd ./frontend/pomodory-web
         npm install 
         npm run build
-        tar cvf build.tar build
+        tar cvf ../../build.tar build
         pwd
         ls
  
@@ -54,8 +54,8 @@ jobs:
         username: ec2-user
         port: 22
         key: ${{ secrets.KEY }}
-        source: "frontend/pomodory-web/build.tar"
-        target: "~/Pomodory/"
+        source: "build.tar"
+        target: "~/"
         
     - name: Run commands to run backend and frontend on EC2 instance
       uses: appleboy/ssh-action@v0.1.9
@@ -65,8 +65,8 @@ jobs:
         key: ${{ secrets.KEY }}
         port: 22
         
-        script: 
-          killall python3
-          killall node
-          nohup python3 ~/Pomodory/backend/main.py > ~/Pomodory/backend/nohup.out &
-          nohup npx serve ~/Pomodory/frontend/pomodory-web/build &> ~/Pomodory/frontend/pomodory-web/nohup.out &
+#         script: 
+#           killall python3
+#           killall node
+#           nohup python3 ~/Pomodory/backend/main.py > ~/Pomodory/backend/nohup.out &
+#           nohup npx serve ~/Pomodory/frontend/pomodory-web/build &> ~/Pomodory/frontend/pomodory-web/nohup.out &
