@@ -66,8 +66,8 @@ jobs:
         script: |
           tar xf build.tar
           sudo su
-          export NVM_DIR=~/.nvm
-          source ~/.nvm/nvm.sh
+          export NVM_DIR=/root/.nvm
+          source /root/.nvm/nvm.sh
           npm --help
           nvm use 16
           killall python3
