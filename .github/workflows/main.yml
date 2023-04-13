@@ -67,7 +67,7 @@ jobs:
         
         script: 
           tar xf build.tar
-#           killall python3
-#           killall node
-#           nohup python3 ~/Pomodory/backend/main.py > ~/Pomodory/backend/nohup.out &
-#           nohup npx serve ~/Pomodory/frontend/pomodory-web/build &> ~/Pomodory/frontend/pomodory-web/nohup.out &
+          killall python3
+          killall node
+          nohup python3 main.py > nohup-backend.out &
+          nohup npx serve build &> nohup-frontend.out &
