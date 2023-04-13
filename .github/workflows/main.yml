@@ -73,4 +73,3 @@ jobs:
           sh script.txt
           killall python3
           killall node
-          nohup serve build &> nohup-frontend.out &
