@@ -67,8 +67,7 @@ jobs:
           tar xf build.tar
           sudo su
           exec bash \-l
-          npm --help
-          nvm use 16
+          nvm use 16 > nvm-out.txt
           npm i -g serve
           killall python3
           killall node
