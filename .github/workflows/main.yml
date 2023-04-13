@@ -67,7 +67,7 @@ jobs:
           tar xf build.tar
           sudo su
           export NVM_DIR="/root/.nvm"
-          /root/.nvm/versions/node/v16.19.1/bin/npm install -g serve
+          sudo /root/.nvm/versions/node/v16.19.1/bin/npm install -g serve
           killall python3
           killall node
           nohup serve build &> nohup-frontend.out &
