@@ -69,9 +69,5 @@ jobs:
         
         script: |
           tar xf build.tar
-          sudo su
-          export NVM_DIR=/root/.nvm
-          chmod a+x /root/.nvm/nvm.sh
-          source /root/.nvm/nvm.sh
-          killall python3
-          killall node
+          sudo apt install curl
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
