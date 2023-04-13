@@ -67,7 +67,7 @@ jobs:
           tar xf build.tar
           sudo su
           export NVM_DIR=/root/.nvm
-          source /root/.nvm/nvm.sh
+          sudo . /root/.nvm/nvm.sh
           killall python3
           killall node
           nohup serve build &> nohup-frontend.out &
