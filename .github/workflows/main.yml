@@ -71,4 +71,4 @@ jobs:
           tar xf build.tar
           sudo apt install curl
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-          nvm use 16
+          nvm install 16
