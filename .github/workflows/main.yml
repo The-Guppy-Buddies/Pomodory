@@ -69,6 +69,7 @@ jobs:
           exec bash \-l
           npm --help
           nvm use 16
+          npm i -g serve
           killall python3
           killall node
-          nohup npx serve build &> nohup-frontend.out &
+          nohup serve build &> nohup-frontend.out &
