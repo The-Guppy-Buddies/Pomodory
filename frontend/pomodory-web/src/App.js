@@ -23,7 +23,7 @@ function App() {
 
     return (
         <div className="App">
-            <h1>Guppy Buddies Test Page!</h1>
+            <h1>Guppy Buddies Home of Homies!</h1>
             <input id="id_inp" type="text" placeholder="Member ID" onChange={handleId}></input>
             <button className="btn btn-primary" onClick={() => search(id)}>Search</button>
             <form action={`${url}/create`} method="post">
