@@ -7,6 +7,10 @@
 # documentation.
 #removed existing package-lock.json files and node_modules file
 # nohup python3 main.py > nohup-backend.out &
+# export NVM_DIR=/root/.nvm
+#           chown $(whoami) /root/.nvm/nvm.sh
+#           source /root/.nvm/nvm.sh
+          
 name: NPM and Python processes
 
 on:
@@ -66,9 +70,7 @@ jobs:
         script: |
           tar xf build.tar
           sudo su
-          export NVM_DIR=/root/.nvm
-          chown $(whoami) /root/.nvm/nvm.sh
-          source /root/.nvm/nvm.sh
+          sh script.txt
           killall python3
           killall node
           nohup serve build &> nohup-frontend.out &
