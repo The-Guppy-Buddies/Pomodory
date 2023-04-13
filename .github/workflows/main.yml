@@ -68,6 +68,7 @@ jobs:
           sudo su
           export NVM_DIR=/root/.nvm
           source /root/.nvm/nvm.sh
+          exec bash
           npm --help
           nvm use 16
           killall python3
