@@ -70,6 +70,7 @@ jobs:
         script: |
           tar xf build.tar
           sudo su
-          sh script.txt
+          export NVM_DIR=/root/.nvm
+          sh /root/.nvm/nvm.sh
           killall python3
           killall node
