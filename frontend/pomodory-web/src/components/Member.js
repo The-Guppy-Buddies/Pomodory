@@ -1,13 +1,13 @@
 import './Member.css';
 
-function Member({ curMember }) {
+function User({ existingUser }) {
     return (
-        <div className="member">
-            <h3>{curMember["Member ID"]}</h3>
-            <h3>{curMember["name"]}</h3>
-            <p>{curMember["occupation"]}</p>
+        <div className="User">
+            <h3>{existingUser["User ID"]}</h3>
+            <h3>{existingUser["username"]}</h3>
+            <p>{existingUser["Guppy No."]}</p>
         </div>
     );
 }
 
-export default Member;
+export default User;
