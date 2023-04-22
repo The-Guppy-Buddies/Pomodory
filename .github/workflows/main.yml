@@ -49,7 +49,7 @@ jobs:
         
         script: |
           tar xf build.tar
-          sudo apt-get install curl
+          sudo yum install curl
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
           nvm install 16
           npm install -g serve
