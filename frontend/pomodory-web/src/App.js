@@ -28,7 +28,7 @@ function App() {
         <div className="App">
             <h1>Guppy Buddies Home of Homies!</h1>
             <input id="id_inp" type="text" placeholder="User ID or username" onChange={handleId}></input>
-            <button className="btn btn-primary" onClick={() => search(id || username)}>Search</button>
+            <button className="btn btn-primary" onClick={() => search(id)}>Search</button>
             <form action={`${url}/create`} method="post">
                 <input className="mt-2 form-control" name="User ID" type="text" placeholder='User ID'></input>
                 <input className="mt-2 form-control" name="username" type="text" placeholder='Username'></input>
