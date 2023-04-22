@@ -10,7 +10,7 @@ import Spline from '@splinetool/react-spline';
 function App() {
     const [id, setId] = useState('');
     const [username, setUsername] = useState('');
-    const [user, setUser] = useState('');
+    //const [user, setUser] = useState('');
 
     const handleId = (event) => {
         setId(event.target.value);
@@ -21,7 +21,7 @@ function App() {
     const search = async (id,username) => {
         await fetch(`${url}/${id||username}`)
             .then((response) => response.json())
-            .then((data) => setUser(data));
+            .then((data) => setUsername(data));
     }
 
     return (
@@ -35,7 +35,7 @@ function App() {
                 <input className="mt-2 form-control" name="Guppy No." type="text" placeholder='(1-5)'></input>
                 <button className="mt-2 btn btn-primary" type="submit">Submit</button>
             </form>
-            <User existingUser={user}/>
+            <User existingUser={username}/>
             <Timer/> 
             
         </div>
