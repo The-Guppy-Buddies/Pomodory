@@ -10,7 +10,7 @@ app = Flask(__name__)
 CORS(app)
 #follow this format for accessing db mongodb+srv://username:<PASSWORD>@guppybuddies.tfnbypd.mongodb.net/<DATABASE> 
 #retryWrites=true&w=majority
-my_secret = open("/home/ec2-user/private/key.text", "r")  # private key inside AWS
+my_secret = open("/home/ec2-user/private/key.txt", "r")  # private key inside AWS
 myclient = pymongo.MongoClient(my_secret.readline())
 my_secret.close()
 
