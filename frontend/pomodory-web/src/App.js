@@ -1,10 +1,12 @@
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 import { useState } from 'react';
 import User from './components/Member';
 import Timer from './components/CountdownTimer';
 import { useRef } from 'react';
 import Spline from '@splinetool/react-spline';
+import TodoList from './components/TodoList';
 
 
 function App() {
@@ -37,7 +39,10 @@ function App() {
             </form>
             <User existingUser={username}/>
             <Timer/> 
-            
+            <TodoList/>
+            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#todo-modal">
+                Open Todo List
+            </button>
         </div>
     );
 }
