@@ -2,10 +2,9 @@ import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 import { useState } from 'react';
+import Account from './components/Account'
 import User from './components/Member';
 import Timer from './components/CountdownTimer';
-import { useRef } from 'react';
-import Spline from '@splinetool/react-spline';
 import TodoList from './components/TodoList';
 import styled from "styled-components";
 import SplineStuff from './components/SplineStuff';
@@ -14,11 +13,13 @@ import SplineStuff from './components/SplineStuff';
 function App() {
     const [id, setId] = useState('');
     const [username, setUsername] = useState('');
-    //const [user, setUser] = useState('');
+    const [user, setUser] = useState('');
 
     const handleId = (event) => {
         setId(event.target.value);
     };
+
+    const setUserVar = (userToSet) => { setUser(userToSet); }
 
     const url = 'http://54.237.22.243:5000/user-collection';
     //const local_url = 'http://127.0.0.1:5000/user-collection'
@@ -34,6 +35,7 @@ function App() {
                 <SplineStuff/>
                 {/* <Spline scene="https://prod.spline.design/RM1G00svMv2hMQhd/scene.splinecode"/> */}
                 <Content>
+                    <Account url={url} setUserFunc={setUserVar}/>
                     <h1>Guppy Buddies Home of Homies!</h1>
                     <input id="id_inp" type="text" placeholder="User ID or username" onChange={handleId}></input>
                     <button className="btn btn-primary" onClick={() => search(id)}>Search</button>
@@ -46,9 +48,9 @@ function App() {
                     <User existingUser={username}/>
                     <Timer/> 
                     <TodoList/>
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#todo-modal">
-                Open Todo List
-            </button>
+                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#todo-modal">
+                        Open Todo List
+                    </button>
                 </Content>
             </Wrapper>
         </div>
@@ -67,6 +69,8 @@ const Wrapper = styled.div`
 `;
 
 const Content = styled.div`
+    width: 100%;
+    height: 100%;
     position: absolute;
-    top: 100px;
+    top: 0px;
     gap: 200px;`;
