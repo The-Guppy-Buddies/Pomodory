@@ -1,13 +1,14 @@
 import { useRef } from 'react';
 import Spline from '@splinetool/react-spline';
 
-function SplineStuff() {
+function SplineStuff({ revealContentFunc }) {
     const fish = useRef();
 
     function onLoad(spline) {
         const obj = spline.findObjectByName('nhi');
 
         fish.current = obj;
+        revealContentFunc();
     }
 
     return (

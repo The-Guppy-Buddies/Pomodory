@@ -29,12 +29,20 @@ function App() {
             .then((data) => setUsername(data));
     }
 
+    const revealContent = () => {
+        document.querySelector("#loader").style.display = "none";
+        document.querySelector("#main-content").style.display = "block";
+    }
+
     return (
         <div className="App">
             <Wrapper> 
-                <SplineStuff/>
+                <SplineStuff revealContentFunc={revealContent}/>
+                <div id="loader">
+                    <h2>Loading...</h2>
+                </div>
                 {/* <Spline scene="https://prod.spline.design/RM1G00svMv2hMQhd/scene.splinecode"/> */}
-                <Content>
+                <Content id="main-content">
                     <Account url={url} setUserFunc={setUserVar}/>
                     <h1>Guppy Buddies Home of Homies!</h1>
                     <input id="id_inp" type="text" placeholder="User ID or username" onChange={handleId}></input>
@@ -64,8 +72,6 @@ const Wrapper = styled.div`
     position: absolute;
     height: 100%;
     width: 100%;
-   
-
 `;
 
 const Content = styled.div`
@@ -73,4 +79,6 @@ const Content = styled.div`
     height: 100%;
     position: absolute;
     top: 0px;
-    gap: 200px;`;
+    gap: 200px;
+    display: none;
+`;
