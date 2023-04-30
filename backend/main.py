@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, redirect
+from flask import Flask, request, redirect, Response
 from flask_cors import CORS
 import json
 import pymongo
@@ -18,9 +18,9 @@ my_secret.close()
 user_db = myclient["Users"]
 #accessing collection "user_data", so we're accessing "Users.user_data"
 user_collection = user_db["user_data"]
+todo_collection = user_db["user_todos"]
 
 #searching within user db for existing user by username or User ID, if not we can create
-
 @app.route("/user-collection/<user_val>")
 def search_by_id_or_name(user_val):
   user_list = []
@@ -49,21 +49,21 @@ def create():
 #   r = client.get(url)
 #   return r.status, r.headers.get('location')
 
+@app.route('/todo-collection/<user_val>')
+def get_todo_for_user(user_val):
+  for todo in todo_collection.find():
+    if(todo['user_id'] == user_val):
+      return json_util.dumps(todo)
+  raise ValueError('Todo not found for current guppy')
 
-
-
-# @app.route("/marlin")
-# def marlin():
-#   return "This is marlin!"
-
-
-# @app.route("/nemo")
-# def nemo():
-#   return "I'm Nemo from Finding Nemo!"
-
-
-# print(search_by_id('001'))
-# search_by_id('001')
+@app.route('/todo-collection/save', methods=['POST'])
+def save_todo():
+  user_id = request.json['user_id']
+  item_list = request.json['list']
+  update_filter = {'user_id': user_id}
+  new_list = {"$set": {'list': item_list}}
+  todo_collection.update_one(update_filter, new_list, upsert=True)
+  return Response("{'status':'201'}", status=201, mimetype='application/json')
 
 if __name__ == "__main__":
   app.run(host="0.0.0.0")

@@ -1,20 +1,38 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TodoItem from './TodoItem';
 import { v4 as uuidv4 } from 'uuid';
 
-function TodoList() {
+function TodoList({ url, userId }) {
     const [detectChange, setDetectChange] = useState(0);
-    const [items, setItems] = useState([
-        {
-            id: uuidv4(),
-            text: "Print hello world"
-        },
-        {
-            id: uuidv4(),
-            text: "Do something else"
-        }
-    ]);
+    const [items, setItems] = useState([]);
     const [savedItems, setSavedItems] = useState(items);
+
+    async function fetchTodoList(id) {
+        await fetch(`${url}/todo-collection/${id}`)
+            .then((response) => response.json())
+            .then((data) => { setItems(data.list); setSavedItems(data.list); })
+            .catch(() => console.log("Could not find todo list entry for given user"));
+    }
+
+    useEffect(() => {
+        if(userId) {
+            fetchTodoList(userId);
+        }
+    }, [userId]);
+
+    async function postTodoList(items) {
+        await fetch(`${url}/todo-collection/save`, {
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "user_id": userId,
+                "list": items
+            })
+        });
+    }
 
     function saveItems() {
         const itemElems = document.querySelector("#todo-modal-body").children;
@@ -33,6 +51,7 @@ function TodoList() {
 
         setItems(updatedItems);
         setSavedItems(updatedItems);
+        postTodoList(updatedItems);
     }
 
     function closeList() {
