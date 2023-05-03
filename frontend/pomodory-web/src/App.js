@@ -37,10 +37,10 @@ function App() {
     return (
         <div className="App">
             <Wrapper> 
-                <SplineStuff revealContentFunc={revealContent}/>
-                <div id="loader">
+                <SplineStuff user={user}/>
+                {/* <div id="loader">
                     <h2>Loading...</h2>
-                </div>
+                </div> */}
                 {/* <Spline scene="https://prod.spline.design/RM1G00svMv2hMQhd/scene.splinecode"/> */}
                 <Content id="main-content">
                     <Account url={url} setUserFunc={setUserVar}/>
@@ -80,5 +80,4 @@ const Content = styled.div`
     position: absolute;
     top: 0px;
     gap: 200px;
-    display: none;
 `;
