@@ -24,4 +24,5 @@ For the backend, the following technologies are used:
 
 Both the frontend and the backend are hosted on AWS. Deployments are automated using GitHub Actions.
 
-[stay tuned YT demo here] 
+### YouTube Demo
+https://www.youtube.com/watch?v=BFieNnqGfro
