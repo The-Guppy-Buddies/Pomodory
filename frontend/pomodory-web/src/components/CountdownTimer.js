@@ -11,6 +11,7 @@ function Timer() {
     
     const [time, setTime] = useState(Date.now());
     const [pomodoriesCompleted, setPomodoriesCompleted] = useState(1);
+    const [startEnabled, setStartEnabled] = useState(false);
     //countdownRef given starting state of 0 
     const countdownRef = useRef();
 
@@ -25,9 +26,9 @@ function Timer() {
 
     // }, [time])
     
-    function Reset(){
-        useState(setTime(Date.now()));
-    }
+    // function Reset(){
+    //     useState(setTime(Date.now()));
+    // }
 
     
     function calculateTime(){
@@ -38,9 +39,23 @@ function Timer() {
         const minutes =document.getElementById('+ 1m').value||0 ;
         const seconds = document.getElementById('+ 1s').value||0;
         
-        setTime(Date.now() + (1000 * 3600 * hours) 
-                        + (1000 * 60 * minutes)
-                        + (1000 * seconds));
+        //sum converts hours, minutes and seconds to milliseconds and adds it to our current time
+        const sum = (hours * 1000*3600) + (minutes * 1000 * 60) + (seconds * 1000);
+
+        // setTime(Date.now() + (1000 * 3600 * hours) 
+        //                 + (1000 * 60 * minutes)
+        //                 + (1000 * seconds));
+        
+        
+
+        console.log("Time in milliseconds is: " + sum);
+
+        if (sum >= 300000){
+            setTime(Date.now() + sum);
+            return setStartEnabled(true);
+        }else{
+        return setStartEnabled(false);
+        }
     }
 
 
@@ -76,9 +91,9 @@ function Timer() {
                 </p>
                 {/* braces indicate that it is dynamically rendered, we can use javascript within these */}
                 
-                <button className="btn btn-primary" onClick={() => countdownRef.current.api.start()}>Start</button>
+                <button class="btn btn-primary" disabled = {!startEnabled} onClick={() => countdownRef.current.api.start()}>Start</button>
                 <button className="btn btn-primary" onClick={() => countdownRef.current.api.pause()}>Pause</button>
-                <button className="btn btn-primary" onClick={() => {Reset()}}>Reset</button>
+                {/* <button className="btn btn-primary" onClick={() => {Reset()}}>Reset</button> */}
         
                 <form>
                     <input className="mt-2 form-control" type = "number" min = "0" id="+ 1hr"  placeholder='+ 1hr'></input>

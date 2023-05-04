@@ -55,7 +55,7 @@ function App() {
                 {/* <Spline scene="https://prod.spline.design/RM1G00svMv2hMQhd/scene.splinecode"/> */}
                 <Content id="main-content">
                     <Account url={url} setUserFunc={setUserVar}/>
-                    <h1>Guppy Buddies Home of Homies!</h1>
+                    <h1>Pomodory Home of Homies!</h1>
                     <User existingUser={username}/>
                     <Timer/> 
                     <TodoList url={url} userId={user["User ID"]}/>
