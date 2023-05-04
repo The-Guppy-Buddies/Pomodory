@@ -38,7 +38,6 @@ function Timer() {
         const minutes =document.getElementById('+ 1m').value||0 ;
         const seconds = document.getElementById('+ 1s').value||0;
         
-
         setTime(Date.now() + (1000 * 3600 * hours) 
                         + (1000 * 60 * minutes)
                         + (1000 * seconds));
@@ -50,8 +49,6 @@ function Timer() {
         // {displaySpriteImage && <img src = {(Sprite)} alt = '1 pomodory completed' style={{ height: "20vh"}}></img>}
         // {!displaySpriteImage && <img src = {require("https://res.cloudinary.com/dk-find-out/image/upload/q_80,w_960,f_auto/DCTM_Penguin_UK_DK_AL526630_wkmzns.jpg")} alt = "bird" style ={{height:"20vh"}}></img>}
       
-        
-        
         if(displaySpriteImage){
             setPomodoriesCompleted(pomodoriesCompleted+1);
             console.log("I am true! " + pomodoriesCompleted);
@@ -67,34 +64,30 @@ function Timer() {
         }
     }
 
-    
     //try wrapping with useState(() =>{}, []);
     return (
         //use input type number, and then htm
-       <div className='timer'>
-            <p>
-                Countdown timer:
-                {/*"event = {() => {function1(); function2();...}}", 
-                if more than 1 function, we use semi-colon delimited function calls */}
-                <Countdown ref ={countdownRef} date={time} autoStart = {false} controlled = {false} onComplete={()=>{play(); displaySprite(true);}}></Countdown>
-
-                   
-            </p>
-            {/* braces indicate that it is dynamically rendered, we can use javascript within these */}
-            
-            <button class="btn btn-primary" onClick={() => countdownRef.current.api.start()}>start</button>
-            <button class="btn btn-primary" onClick={() => countdownRef.current.api.pause()}>Pause</button>
-            <button class="btn btn-primary" onClick={() => {Reset()}}>Reset</button>
-    
-            <form>
-                <input className="mt-2 form-control" type = "number" min = "0" id="+ 1hr"  placeholder='+ 1hr'></input>
-                <input className="mt-2 form-control" type = "number" min = "0" id="+ 1m"  placeholder='+ 1m'></input>
-                <input className="mt-2 form-control" type = "number" min = "0" id="+ 1s"  placeholder='+ 1s'></input>
-                <button className="mt-2 btn btn-primary" onClick = {() =>{calculateTime()} }type="button">Submit</button>
-            </form>
-            
-            
-       </div> 
+        <div className='container-box' id="timer-box">
+            <div className='timer'>
+                <p>
+                    {/*"event = {() => {function1(); function2();...}}", 
+                    if more than 1 function, we use semi-colon delimited function calls */}
+                    <Countdown ref ={countdownRef} date={time} autoStart = {false} controlled = {false} onComplete={()=>{play(); displaySprite(true);}}></Countdown>
+                </p>
+                {/* braces indicate that it is dynamically rendered, we can use javascript within these */}
+                
+                <button className="btn btn-primary" onClick={() => countdownRef.current.api.start()}>Start</button>
+                <button className="btn btn-primary" onClick={() => countdownRef.current.api.pause()}>Pause</button>
+                <button className="btn btn-primary" onClick={() => {Reset()}}>Reset</button>
+        
+                <form>
+                    <input className="mt-2 form-control" type = "number" min = "0" id="+ 1hr"  placeholder='+ 1hr'></input>
+                    <input className="mt-2 form-control" type = "number" min = "0" id="+ 1m"  placeholder='+ 1m'></input>
+                    <input className="mt-2 form-control" type = "number" min = "0" id="+ 1s"  placeholder='+ 1s'></input>
+                    <button className="mt-2 btn btn-primary" onClick = {() =>{calculateTime()} }type="button">Set Time</button>
+                </form>
+            </div>
+        </div>
     );
 }
 

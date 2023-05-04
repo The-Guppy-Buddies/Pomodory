@@ -1,3 +1,4 @@
+import './TodoList.css';
 import { useEffect, useState } from 'react';
 import TodoItem from './TodoItem';
 import { v4 as uuidv4 } from 'uuid';
@@ -35,7 +36,7 @@ function TodoList({ url, userId }) {
     }
 
     function saveItems() {
-        const itemElems = document.querySelector("#todo-modal-body").children;
+        const itemElems = document.querySelector("#todo-body").children;
         let updatedItems = [];
 
         for(let i = 0; i < itemElems.length; i++) {
@@ -68,22 +69,16 @@ function TodoList({ url, userId }) {
     }
 
     return (
-        <div className="modal fade" id="todo-modal" tabIndex="-1" aria-hidden="true" data-backdrop="static" data-keyboard="false" data-bs-backdrop="static" data-bs-keyboard="false">
-            <div className="modal-dialog">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h1 className="modal-title fs-5 text-bg-light" id="exampleModalLabel">Todo List</h1>
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={closeList}></button>
-                    </div>
-                    <div className="modal-body" id="todo-modal-body">
-                        {items.map(item => <TodoItem key={item.id} item={item} detectChange={detectChange} removeFunc={removeItem}/>)}
-                        <button type="button" className="btn btn-success" onClick={addItem}>Add Item</button>
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={closeList}>Close</button>
-                        <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={saveItems}>Save changes</button>
-                    </div>
-                </div>
+        <div className='container-box' id="todo-box">
+            <div className="container-header">
+                <h4 className="text-bg-light">Todo List</h4>
+            </div>
+            <div className="container-body" id="todo-body">
+                {items.map(item => <TodoItem key={item.id} item={item} detectChange={detectChange} removeFunc={removeItem}/>)}
+                <button type="button" className="btn btn-success" onClick={addItem}>Add Item</button>
+            </div>
+            <div className="container-footer">
+                <button type="button" className="btn btn-primary" onClick={saveItems}>Save Changes</button>
             </div>
         </div>
     );

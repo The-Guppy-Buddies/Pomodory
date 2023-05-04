@@ -1,3 +1,42 @@
 p {
     color: white;
 }
+
+.timer p {
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.timer button {
+    margin: 0 3px;
+}
+
+#timer-box {
+    top: 15%;
+    left: 10px;
+}
+
+@media (min-width: 600px) {
+    #timer-box {
+        left: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    #timer-box {
+        left: 50px;
+    }
+}
+
+@media (min-width: 992px) {
+    #timer-box {
+        left: 100px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #timer-box {
+        left: 170px;
+    }
+}

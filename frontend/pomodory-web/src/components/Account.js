@@ -1,6 +1,6 @@
 import './Account.css';
 import { useState } from 'react';
-import { Toast } from 'bootstrap';
+// import { Toast } from 'bootstrap';
 
 function Account({ url, setUserFunc }) {
     const [id, setId] = useState('');
@@ -35,10 +35,10 @@ function Account({ url, setUserFunc }) {
             setUserFunc(data);
             hideAccountScreen();
 
-            const toastElem = document.getElementById('toast-sign-in');
-            toastElem.querySelector(".toast-body").innerHTML = `Welcome ${data.username}!`
-            const toast = new Toast(toastElem);
-            toast.show();
+            // const toastElem = document.getElementById('toast-sign-in');
+            // toastElem.querySelector(".toast-body").innerHTML = `Welcome ${data.username}!`
+            // const toast = new Toast(toastElem);
+            // toast.show();
         }
 
         document.querySelector("#status-loading").classList.remove("hidden");

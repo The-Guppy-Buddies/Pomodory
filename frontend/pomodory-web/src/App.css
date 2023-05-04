@@ -22,3 +22,25 @@ form input {
     transform: translate(-50%, -50%);
     color: black;
 }
+
+.container-box {
+    background-color: whitesmoke;
+    width: fit-content;
+    padding: 20px;
+    border-radius: 1em;
+    position: absolute;
+}
+
+.container-header {
+    border-bottom: 2px solid darkslategray;
+}
+
+.container-body {
+    margin: 25px 0;
+}
+
+.container-footer {
+    border-top: 2px solid darkslategray;
+    padding: 15px;
+    padding-bottom: 0;
+}
